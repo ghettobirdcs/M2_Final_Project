@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-/* TODO: blobs + grids */
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +8,14 @@
     scroll-behavior: smooth;
 }
 
-body {
+/* 
+    I noticed that when using the device toolbar in inspect element (emulating a phone screen),
+    there was noticeable overflow on the x-axis. I believe this was caused by some of the blobs having
+    hard-coded widths, but I can't be sure. After moving the max-width and overflow-x commands to main
+    instead of body, this seems to have been remedied. 
+*/
+
+main {
     max-width: 100vw;
     overflow-x: hidden;
 }
@@ -1337,7 +1343,7 @@ MOBILE RESPONSIVENESS ↓
     }
 
     .plan {
-        width: 384px;
+        width: 100%;
         margin-top: 64px;
     }
 
@@ -1614,6 +1620,7 @@ MOBILE RESPONSIVENESS ↓
 
     .footer__item {
         width: auto;
+        margin-top: 48px;
     }
 
     .footer__item,
